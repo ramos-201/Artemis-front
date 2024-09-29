@@ -26,7 +26,7 @@ const ConnectionStatus = () => {
                     setStatus({
                         loading: false,
                         message: '',
-                        error: 'An error occurred while connecting',
+                        error: 'A connection error occurred',
                     });
                 }
                 console.error(err);
