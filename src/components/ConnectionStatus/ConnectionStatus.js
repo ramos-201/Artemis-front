@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { connectionStatus } from '../../services/ApiArtemisBack';
-import './ConnectionStatus.css';
+import { Typography } from '@mui/material';
+
 
 const ConnectionStatus = () => {
-     const [status, setStatus] = useState({
-        message: '',
-        error: null,
+    const [status, setStatus] = useState({
+        message: '', 
+        error: null, 
+        loading: true,
     });
-     
+    
     useEffect(() => {
         let isMounted = true;
         
@@ -16,7 +18,7 @@ const ConnectionStatus = () => {
                 const data = await connectionStatus();
                 if (isMounted) {
                     setStatus({
-                        loading: false,
+                        loading: false, 
                         message: data.message,
                         error: null,
                     });
@@ -38,10 +40,10 @@ const ConnectionStatus = () => {
         }}, []
     );
     
-    if (status.loading) {
+     if (status.loading) {
         return (
             <div>
-                <h2>Loading...</h2>
+                <Typography variant="h6">Loading...</Typography>
             </div>
         );
     }
@@ -49,9 +51,13 @@ const ConnectionStatus = () => {
     return (
         <div>
             {status.error ? (
-                <h2 className="error-message">{status.error}</h2>
+                <Typography variant="h5" color="error.main">
+                    {status.error}
+                </Typography>
             ) : (
-                <h2 className="success-message">{status.message}</h2>
+                <Typography variant="h5" color="success.main">
+                    {status.message}
+                </Typography>
             )}
         </div>
     );
