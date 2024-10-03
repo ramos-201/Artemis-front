@@ -15,8 +15,8 @@ function App() {
        <ThemeProvider theme={theme}>
            <Router>
                <Routes>
-                   <Route path="/" element={<Login />}  />
                    <Route path="/conn-back" element={<ConnectionStatus />} />
+                   <Route path="/" element={<Login />}  />
                    {}
                </Routes>
            </Router>

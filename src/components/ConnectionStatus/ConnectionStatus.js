@@ -31,7 +31,6 @@ const ConnectionStatus = () => {
                         error: 'A connection error occurred',
                     });
                 }
-                console.error(err);
             }
         };
         fetchConnectionStatus().then(r => {});
